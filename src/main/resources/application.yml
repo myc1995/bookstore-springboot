@@ -2,5 +2,5 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://192.168.15.22:3306/jdbc
+    url: jdbc:mysql://localhost:3306/bookstore
     driver-class-name: com.mysql.cj.jdbc.Driver
