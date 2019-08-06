@@ -14,12 +14,12 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.alibaba.druid.pool.DruidDataSource;
 
 public class JDBCUtils {
 
-    // 使用C3P0数据库连接池管理数据库连接
-    private static DataSource dataSource = new ComboPooledDataSource();
+    // 使用Druid数据库连接池管理数据库连接
+    private static DataSource dataSource = new DruidDataSource();
 
     // 获取连接
     public static Connection getConnection() throws SQLException {
