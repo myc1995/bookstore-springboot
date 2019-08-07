@@ -1,4 +1,11 @@
 package com.myc.mapper;
 
-public class OrdersItemMapper {
+import com.myc.bean.OrdersItem;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+
+public interface OrdersItemMapper {
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @Insert("insert into ordersItem values(#{ordersItem})")
+    public void add(OrdersItem ordersItem);
 }
