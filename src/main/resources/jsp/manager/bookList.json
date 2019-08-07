@@ -1,0 +1,9 @@
+{
+  "total":4,
+  "rows":[
+    {"id":1 ,"name":"三体全集（全3册）", "price":168.00,"sales":1000,"author":"刘慈欣","publishDate":"2011-11-01","press":"重庆出版社"},
+    {"id":2 ,"name":"时间简史", "price":30.00,"sales":2000,"author":"（英）史蒂芬·霍金","publishDate":"2010-07-01","press":"湖南科学技术出版社"},
+    {"id":3 ,"name":"边城", "price":35.00,"sales":600,"author":"沈从文","publishDate":"2012-02-01","press":"北京燕山出版社"},
+    {"id":1 ,"name":"了不起的盖茨比", "price":19.50,"sales":1200,"author":"（美）菲茨杰拉德","publishDate":"2011-11-01","press":"重庆出版社"}
+  ]
+}
