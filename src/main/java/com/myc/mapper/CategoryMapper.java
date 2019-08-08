@@ -1,6 +1,6 @@
 package com.myc.mapper;
 
-import com.myc.bean.Category;
+import com.myc.entities.Category;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

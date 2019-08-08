@@ -1,10 +1,19 @@
 package com.myc.service;
 
-import com.myc.bean.Address;
+import com.myc.entities.Address;
+import com.myc.mapper.AddressMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class AddressService {
-    public int handleAddAddress(Address address) {
+    @Autowired
+    AddressMapper addressMapper;
 
-        return 1;
+    public List<Address> handleGetAddressList(Integer userId) {
+        List<Address> res = addressMapper.list(userId);
+        return res;
     }
 }

@@ -1,6 +1,6 @@
 package com.myc.mapper;
 
-import com.myc.bean.OrdersItem;
+import com.myc.entities.OrdersItem;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 

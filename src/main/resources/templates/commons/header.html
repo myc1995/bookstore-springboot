@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+<div class="header" th:fragment="header">
+    <div class="operate">
+        <ul>
+            <li>您好！xxx&nbsp;&nbsp;</li>
+            <li><a href="${pageContext.request.contextPath }/"> 首页 </a></li>
+            <li>
+                <a target="_blank" href="#">
+                    <i class="icon_card"></i>购物车 <span>3</span>
+                </a>
+            </li>
+            <li><a target="_blank" href="#"> 登录 </a></li>
+            <li><a target="_blank" href="#"> 注册 </a></li>
+            <li>
+                <a target="_blank" href="#">
+                    我的订单 <span>2</span>
+                </a>
+            </li>
+            <li><a target="_blank" href="#"> 收货地址 </a></li>
+            <li><a href="#"> 修改密码 </a></li>
+            <li><a href="#"> 退出 </a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

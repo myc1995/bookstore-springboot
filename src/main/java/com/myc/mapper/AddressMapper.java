@@ -1,6 +1,6 @@
 package com.myc.mapper;
 
-import com.myc.bean.Address;
+import com.myc.entities.Address;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.myc.mapper;
 
-import com.myc.bean.Book;
+import com.myc.entities.Book;
 import com.myc.utils.Page;
 import com.myc.utils.PageAjaxResult;
 import org.apache.ibatis.annotations.*;

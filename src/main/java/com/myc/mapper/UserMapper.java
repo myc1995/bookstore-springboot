@@ -1,6 +1,6 @@
 package com.myc.mapper;
 
-import com.myc.bean.User;
+import com.myc.entities.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;

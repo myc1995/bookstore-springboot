@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>收货地址管理</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/js/jquery.min.js}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/js/tools.js}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="commons/header::header" class="main" style="width: 777px;"></div>
+<div class="main" style="width: 777px;">
+    <div class="main" style="width: 777px;">
+
+        <div class="message">
+            <p>收货地址</p>
+            <span></span>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <a href="#" target="_self">添加新收货地址</a>
+        </div>
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr class="address-default">
+                <th>id</th>
+                <th>userId</th>
+                <th>consignee</th>
+                <th>phone</th>
+                <th>location</th>
+                <th>creatTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="al:${addressList}" class="address-default">
+                <td th:text="${al.id}"></td>
+                <td th:text="${al.userId}"></td>
+                <td th:text="${al.consignee}"></td>
+                <td th:text="${al.phone}"></td>
+                <td th:text="${al.location}"></td>
+                <td th:text="${#dates.format(al.createTime, 'yyyy-MM-dd HH:mm')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:insert="commons/footer::footer" class="main" style="width: 777px;"></div>
+</body>
+</html>
