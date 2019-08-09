@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>model</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/js/jquery.min.js}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/js/tools.js}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/css/book_list.css}"/>
+</head>
+<body>
+<div th:insert="commons/header::header" class="main" style="width: 777px;"></div>
+<div>
+    <div class="main" style="width: 1000px; margin-top: 20px;">
+        <!-- 左侧图书分类导航栏 -->
+        <div class="book_list_left">
+            <ul id="categoryUl">
+                <li><a th:href="@{'../bookList/'+'1'}">全部</a></li>
+                <li th:each="cl:${categoryList}">
+                    <a href="#">
+                        <div th:text="${cl.name}"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 右侧主体区域 -->
+        <div class="book_list_right">
+            <div>
+                <div class="search">
+                    <form id="searchForm" action="<%=path%>/book" method="post">
+                        <input type="hidden" name="action" value="list"/>
+                        <input type="text" name="searchText" class="searchtext" th:placeholder="请输入书名或作者"/>
+                        <input type="submit" class="searchbtn"/>
+                    </form>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <hr style="margin-bottom: 10px"/>
+            <div class="books">
+                <div class="book" th:each="bl:${bookList}">
+                    <a class="bookcover" th:href="@{'../bookDetail/'+${bl.id}}" target="_blank">
+                        <img th:src="@{'../asserts/img/'+${bl.coverImage}}">
+                    </a>
+                    <div class="bookinfo">
+                        <div class="title" th:text="${bl.name}"></div>
+                        <div class="author" th:text="${bl.author}"></div>
+                        <div class="price" th:text="${bl.price}"></div>
+                        <div class="description" th:text="${bl.description}"></div>
+                    </div>
+                </div>
+
+                <div style="clear: both;"></div>
+
+                <!-- 分页区域 -->
+                <!--                <div class="page" style="float: right;">-->
+                <!--                    <a-->
+                <!--                    <c:if test="${page.targetPage>1 }">-->
+                <!--                        href="<%=path%>/book?action=list&targetPage=${page.targetPage-1}&categoryId=${param.categoryId}&searchText=${param.searchText-->
+                <!--                        }"-->
+                <!--                    </c:if>-->
+                <!--                    >上一页</a>-->
+
+                <!--                    <span>${page.targetPage }/${page.totalPage }</span>-->
+                <!--                    <a-->
+                <!--                    <c:if test="${page.targetPage<page.totalPage }">-->
+                <!--                        href="<%=path%>/book?action=list&targetPage=${page.targetPage+1}&categoryId=${param.categoryId}&searchText=${param.searchText-->
+                <!--                        }"-->
+                <!--                    </c:if>-->
+                <!--                    >下一页</a>-->
+                <!--                </div>-->
+            </div>
+            <hr style="margin-bottom: 10px"/>
+        </div>
+    </div>
+    <div style="clear: both;margin-bottom: 55px"></div>
+</div>
+<div th:insert="commons/footer::footer" class="main" style="width: 777px;"></div>
+</body>
+</html>

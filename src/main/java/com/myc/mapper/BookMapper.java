@@ -1,12 +1,20 @@
 package com.myc.mapper;
 
 import com.myc.entities.Book;
+import com.myc.entities.Category;
 import com.myc.utils.Page;
 import com.myc.utils.PageAjaxResult;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
+@Mapper
 public interface BookMapper {
-    public void list(Page<Book> page);
+    @Select("select count(*) from book where isDeleted=false")
+    public int getBookCount();
+
+    @Select("select * from book where isDeleted=false limit #{pageIndex},6")
+    public List<Book> list(int pageIndex);
 
     public void list(Page<Book> page, Integer categoryId);
 
@@ -28,4 +36,7 @@ public interface BookMapper {
 
     @Delete("delete from book where id=#{id}")
     public void deleteById(int id);
+
+    @Select("select * from category")
+    public List<Category> getCategoryList();
 }
