@@ -39,4 +39,7 @@ public interface BookMapper {
 
     @Select("select * from category")
     public List<Category> getCategoryList();
+
+    @Select("select * from book where categoryId=#{categoryId}")
+    List<Book> listByCategory(Integer categoryId);
 }

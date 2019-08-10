@@ -17,7 +17,7 @@
             <ul id="categoryUl">
                 <li><a th:href="@{'../bookList/'+'1'}">全部</a></li>
                 <li th:each="cl:${categoryList}">
-                    <a href="#">
+                    <a th:href="'../category/'+${cl.id}">
                         <div th:text="${cl.name}"></div>
                     </a>
                 </li>
