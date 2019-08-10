@@ -24,4 +24,11 @@ public class BookController {
         model.addAttribute("categoryList", categoryList);
         return "book/bookList";
     }
+
+    @RequestMapping("/bookDetail/{bookId}")
+    public String bookDetail(Model model, @PathVariable("bookId") Integer bookId) {
+        Book book = bookService.getBookDetail(bookId);
+        model.addAttribute("book", book);
+        return "book/bookDetail";
+    }
 }

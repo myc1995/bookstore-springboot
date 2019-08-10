@@ -23,4 +23,9 @@ public class BookService {
         List<Category> categoryList = bookMapper.getCategoryList();
         return categoryList;
     }
+
+    public Book getBookDetail(Integer bookId) {
+        Book book = bookMapper.findById(bookId);
+        return book;
+    }
 }
