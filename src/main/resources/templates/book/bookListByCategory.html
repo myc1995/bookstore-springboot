@@ -37,7 +37,7 @@
             </div>
             <hr style="margin-bottom: 10px"/>
             <div class="books">
-                <div class="book" th:each="bl:${bookList}">
+                <div class="book" th:each="bl:${bookListByCategory}">
                     <a class="bookcover" th:href="@{'/bookDetail/'+${bl.id}}" target="_blank">
                         <img th:src="@{'/asserts/img/'+${bl.coverImage}}">
                     </a>
@@ -51,9 +51,9 @@
 
                 <div style="clear: both;"></div>
                 <div class="page" style="float: right;">
-                    <a th:if="${pageCount}>1" th:each="pageNum : ${#numbers.sequence(1,pageCount)}"
-                       th:href="'/bookList/'+${pageNum}"
-                       th:text="'第'+${pageNum}+'页'"></a>
+                    <a th:if="${categoryPageCount}>1" th:each="ctPageNum : ${#numbers.sequence(1,categoryPageCount)}"
+                       th:href="'/category/'+${categoryId}+'/'+${ctPageNum}"
+                       th:text="'第'+${ctPageNum}+'页'"></a>
                 </div>
             </div>
             <hr style="margin-bottom: 10px"/>

@@ -29,8 +29,30 @@ public class BookService {
         return book;
     }
 
-    public List<Book> getBookByCategory(Integer categoryId) {
-        List<Book> bookList = bookMapper.listByCategory(categoryId);
+    public List<Book> getBookByCategory(Integer categoryId, Integer categoryIndex) {
+        List<Book> bookList = bookMapper.listByCategory(categoryId, (categoryIndex - 1) * 6);
         return bookList;
+    }
+
+    public int getPageCount() {
+        int pageCount;
+        int bookCount = bookMapper.getBookCount();
+        if (bookCount % 6 == 0) {
+            pageCount = bookCount / 6;
+        } else {
+            pageCount = (bookCount / 6) + 1;
+        }
+        return pageCount;
+    }
+
+    public int getPageCountByCategoryId(Integer categoryId) {
+        int pageCount;
+        int bookCount = bookMapper.getBookCountByCategoryId(categoryId);
+        if (bookCount % 6 == 0) {
+            pageCount = bookCount / 6;
+        } else {
+            pageCount = (bookCount / 6) + 1;
+        }
+        return pageCount;
     }
 }

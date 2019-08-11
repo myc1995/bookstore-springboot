@@ -16,19 +16,24 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping("/category/{categoryId}")
-    public String category(Model model, @PathVariable("categoryId") Integer categoryId) {
-        List<Book> bookList = bookService.getBookByCategory(categoryId);
+    @RequestMapping("/category/{categoryId}/{categoryIndex}")
+    public String category(Model model, @PathVariable("categoryId") Integer categoryId, @PathVariable("categoryIndex") Integer categoryIndex) {
+        List<Book> bookListByCategory = bookService.getBookByCategory(categoryId, categoryIndex);
         List<Category> categoryList = bookService.getCategoryList();
-        model.addAttribute("bookList", bookList);
+        int categoryPageCount = bookService.getPageCountByCategoryId(categoryId);
+        model.addAttribute("categoryPageCount", categoryPageCount);
+        model.addAttribute("bookListByCategory", bookListByCategory);
         model.addAttribute("categoryList", categoryList);
-        return "book/bookList";
+        model.addAttribute("categoryId", categoryId);
+        return "book/bookListByCategory";
     }
 
     @RequestMapping("/bookList/{pageIndex}")
     public String bookList(Model model, @PathVariable("pageIndex") Integer pageIndex) {
+        int pageCount = bookService.getPageCount();
         List<Book> bookList = bookService.getBookList(pageIndex);
         List<Category> categoryList = bookService.getCategoryList();
+        model.addAttribute("pageCount", pageCount);
         model.addAttribute("bookList", bookList);
         model.addAttribute("categoryList", categoryList);
         return "book/bookList";

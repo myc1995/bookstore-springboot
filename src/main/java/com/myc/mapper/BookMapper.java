@@ -40,6 +40,9 @@ public interface BookMapper {
     @Select("select * from category")
     public List<Category> getCategoryList();
 
-    @Select("select * from book where categoryId=#{categoryId}")
-    List<Book> listByCategory(Integer categoryId);
+    @Select("select * from book where categoryId=#{categoryId} limit #{categoryIndex},6")
+    List<Book> listByCategory(Integer categoryId, Integer categoryIndex);
+
+    @Select("select count(*) from book where isDeleted=false and categoryId=#{categoryId}")
+    int getBookCountByCategoryId(Integer categoryId);
 }
