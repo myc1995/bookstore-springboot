@@ -48,9 +48,9 @@
                         <div class="description" th:text="${bl.description}"></div>
                     </div>
                 </div>
-
+                <br>
                 <div style="clear: both;"></div>
-                <div class="page" style="float: right;">
+                <div class="page" style="float: right">
                     <a th:if="${categoryPageCount}>1" th:each="ctPageNum : ${#numbers.sequence(1,categoryPageCount)}"
                        th:href="'/category/'+${categoryId}+'/'+${ctPageNum}"
                        th:text="'第'+${ctPageNum}+'页'"></a>

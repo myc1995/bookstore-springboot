@@ -48,7 +48,7 @@
                         <div class="description" th:text="${bl.description}"></div>
                     </div>
                 </div>
-
+                <br>
                 <div style="clear: both;"></div>
                 <div class="page" style="float: right;">
                     <a th:if="${pageCount}>1" th:each="pageNum : ${#numbers.sequence(1,pageCount)}"

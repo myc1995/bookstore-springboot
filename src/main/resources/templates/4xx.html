@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>页面找不到了！</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/asserts/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/asserts/js/jquery.min.js}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/asserts/js/tools.js}"/>
+</head>
+<body>
+<div class="main" style="width: 900px;">
+    <div class="message">
+        <p>Sorry，您访问的资源不存在</p>
+    </div>
+</div>
+<div th:insert="commons/footer::footer" class="main" style="width: 777px;"></div>
+</body>
+</html>

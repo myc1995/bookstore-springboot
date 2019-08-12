@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>用户注册</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/js/jquery.min.js}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/asserts/js/tools.js}"/>
+</head>
+<body>
+<div th:insert="commons/header::header" class="main" style="width: 777px;"></div>
+<div class="main" style="width: 400px;">
+    <div class="message">
+        <p>注册页面</p>
+    </div>
+    <form action="<%=path%>/user" method="post">
+        <input type='hidden' name='action' value='registerSubmit'/>
+        <!-- 邮箱 -->
+        <div class="text-input">
+            <label for="email">邮箱 *</label>
+            <input id="email" name="email" type="text"/>
+            <span id="emailTip"></span>
+        </div>
+
+
+        <!-- 密码 -->
+        <div class="text-input">
+            <label for="password">密码 *</label>
+            <input id="password" name="password" type="password"/>
+            <span id="passwordTip"></span>
+        </div>
+
+        <!-- 重复密码 -->
+        <div class="text-input">
+            <label for="repassword">重复密码 *</label>
+            <input id="repassword" type="password"/>
+            <span id="repasswordTip"></span>
+        </div>
+        <!-- 注册  -->
+        <br/> <br/> <input type="submit" value="   注   册   "/>
+    </form>
+</div>
+<div th:insert="commons/footer::footer" class="main" style="width: 777px;"></div>
+</body>
+</html>
